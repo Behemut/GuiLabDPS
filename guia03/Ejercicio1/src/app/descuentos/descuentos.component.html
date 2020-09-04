@@ -1,0 +1,36 @@
+
+<div class="header">
+  <h1>Calculo de sueldo neto</h1>
+  <p>Ingrese los datos requeridos, acontinuacion</p>
+</div>
+  <label>Nombre de empleado:</label>
+  <input type="text" [(ngModel)]="nombre">
+  <label>Sueldo bruto:</label>
+  <input type="text" [(ngModel)]="sueldo_b">
+  <button class="button" (click)="ProcDescuentos()">Ingresar datos</button>
+<br/><br/>
+<div class="table-responsive-sm">
+<table [hidden]="contador == 0" class="table table-striped table-dark">
+  <thead>
+  <tr>
+  <th scope="col">Nombre</th>
+  <th scope="col">Sueldo Bruto</th>
+  <th scope="col">Descuento ISSS</th>
+  <th scope="col">Descuento AFP</th>
+  <th scope="col">Descuento Renta</th>
+  <th scope="col">Sueldo neto</th>
+  </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let templeado of registro">
+    <td>{{templeado.nombre}}</td>
+    <td>{{templeado.sueldo_bruto}}</td>
+    <td>{{templeado.isss}}</td>
+    <td>{{templeado.afp}}</td>
+    <td>{{templeado.renta}}</td>
+    <td>{{templeado.sueldo_neto}}</td>
+    </tr>
+    </tbody>
+    </table>
+  </div>

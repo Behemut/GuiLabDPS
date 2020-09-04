@@ -1,0 +1,32 @@
+
+
+<div class="header">
+  <h1>Gasolinera Angular </h1>
+  <p>Ingrese los datos solicitados para realizar la conversion</p>
+  </div>
+  <label>Cantidad de galones:</label>
+  <input  oninput="verificar()" [(ngModel)]="cantidad" placeholder="Cantidad de galones en venta" required step="0.05" min="0.05" max="150" type="number">
+  <label>Tipo de Gasolina:</label>
+  <select [(ngModel)]="opcionSeleccionado" (change)="capturar()">
+  <option value="Selecciona">Selecciona</option>
+  <option (click)="capturar() " *ngFor="let u of unidades" value="{{u}}" >
+  {{u}}
+  </option>
+  </select>
+
+  <table >
+    <thead>
+    <tr>
+    <th>Cantidad en venta</th>
+    <th>Tipo de gasolina</th>
+    <th>Preventa</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let talumno of registro_previo">
+      <td>{{talumno.cantidad}}</td>
+      <td>{{talumno.tipo}}</td>
+      <td>{{talumno.preventa}}</td>
+      </tr>
+      </tbody>
+      </table>
