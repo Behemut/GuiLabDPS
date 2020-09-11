@@ -9,13 +9,13 @@ import { Alumno } from './models/alumno' ;
 export class AppComponent {
   title = 'crudAngular';
 //Arreglo del tipo Alumno que tiene 3 registro almacenados
-alumnoArray: Alumno[] = [{id:1, name: "Alex", lastname:"Campos", age: 35},
-                         {id:2, name: "Maria", lastname:"Lopez", age: 20},
-                         {id:3, name: "Juan", lastname:"Castro", age: 25}]
+alumnoArray: Alumno[] = [{id:1, name: "Alex", lastname:"Campos", age: 35,direccion: "Soyapango", telefono:"2252-6776",email: "alex.campos@correo.com"},
+                         {id:2, name: "Maria", lastname:"Lopez", age: 20,direccion: "Ilopango", telefono:"2252-6777",email: "marios.lopez@correo.com"},
+                         {id:3, name: "Juan", lastname:"Castro", age: 25,direccion: "Apopa", telefono:"2252-6778",email: "juan.castro@correo.com"}]
 
 //Atributo selecAlumno del tipo Alumno, por lo tanto puede almacenar un objeto
 
-selectedAlumno: Alumno = {id:0, name:'', lastname:'', age:0};
+selectedAlumno: Alumno = {id:0, name:'', lastname:'', age:0 ,direccion: '', telefono: '',email: ''};
 
 //un metodo que no retorna nada "void", recibe como parametro una variable del tipo Alumno
 //Para ser asignada al atributo selectAlumno y poder ser mostrado en pantalla
@@ -32,13 +32,13 @@ if(this.selectedAlumno.id === 0){ //INSERT
   this.selectedAlumno.id = this.alumnoArray.length +1;
   this.alumnoArray.push (this.selectedAlumno);
 }
-this.selectedAlumno = {id:0, name:'', lastname: '', age: 0};
+this.selectedAlumno = {id:0, name:'', lastname: '', age: 0,direccion: '', telefono: '',email: ''};
 }
 
 delete(): void {
   if (confirm('¿Esta seguro de eliminar el Registro?')){
     this.alumnoArray = this.alumnoArray.filter( x => x!= this.selectedAlumno);
-    this.selectedAlumno = {id:0, name:'', lastname: '', age: 0};
+    this.selectedAlumno = {id:0, name:'', lastname: '', age: 0, direccion: '', telefono: '',email: ''};
    }
   }
 }

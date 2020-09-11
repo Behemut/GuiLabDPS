@@ -15,7 +15,10 @@ articulos = null;
 art = {
 codigo: 0,
 descripcion: null,
-precio: null
+precio: null,
+//Añadiendo nuevos campos
+proveedor: null,
+fabricante: null
 }
 
 constructor(private articulosServicio: ArticulosService){
@@ -33,7 +36,7 @@ alta(){
     {if(datos['resultado']=='OK'){
     alert(datos['mensaje']);
     this.recuperarTodos();
-    this.art = { codigo: 0, descripcion: null, precio: null};
+    this.art = { codigo: 0, descripcion: null, precio: null, proveedor:null, fabricante: null};
   }}
   );
 }
@@ -51,7 +54,7 @@ modificacion(){
     if(datos['resultado']=='OK'){
       alert(datos['mensaje']);
       this.recuperarTodos();
-      this.art = { codigo:0, descripcion: null, precio: null};
+      this.art = { codigo:0, descripcion: null, precio: null, proveedor:null, fabricante: null};
     }
   });
 }
